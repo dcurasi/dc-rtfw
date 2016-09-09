@@ -120,4 +120,12 @@ class Dc_Rtfw_Public {
 		}
 	}
 
+	public function table_start() {
+		echo '<div id="dc-rtfw-table">';
+	}
+
+	public function table_end() {
+		echo '</div>';
+	}
+
 }
