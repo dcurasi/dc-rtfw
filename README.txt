@@ -7,7 +7,7 @@ Stable tag: 4.6.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.txt
 
-Make responsive the Cart and Whishlist table of Woocommerce.
+Make responsive the Cart and Wishlist table of Woocommerce.
 
 
 == Description ==
