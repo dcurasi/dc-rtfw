@@ -100,4 +100,39 @@ class Dc_Rtfw_Admin {
 
 	}
 
+	//inizializzazione menu di amministrazione
+	function add_menu_page()
+	{
+	    add_submenu_page('woocommerce','Responsive Table', 'Responsive Table', 'manage_options', 'dc-rtfw-menu-page', array( $this,'create_admin_interface' ));
+	}
+
+	/**
+	 * Callback function for the admin settings page.
+	 *
+	 * @since    1.0.0
+	 */
+	public function create_admin_interface(){
+
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/partials/dc-rtfw-admin-display.php';
+
+	}
+
+	/**
+	 * Creates our settings sections with fields etc.
+	 *
+	 * @since    1.0.0
+	 */
+	public function settings_api_init(){
+		register_setting('dc_rtfw_options_group', 'dc_rtfw_activate');
+		register_setting('dc_rtfw_options_group', 'dc_rtfw_activate_cart');
+		register_setting('dc_rtfw_options_group', 'dc_rtfw_activate_wishlist');
+		register_setting('dc_rtfw_options_group', 'dc_rtfw_wishlist_page');
+	}
+
+	public function update_notice() {
+		echo '<div class="updated notice">
+        		<p>The options have been saved successfully.</p>
+    		  </div>';
+	}
+
 }

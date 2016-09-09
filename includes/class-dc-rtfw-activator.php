@@ -30,7 +30,10 @@ class Dc_Rtfw_Activator {
 	 * @since    1.0.0
 	 */
 	public static function activate() {
-
+		add_option('dc_rtfw_activate', 1);
+		add_option('dc_rtfw_activate_cart', 1);
+		add_option('dc_rtfw_activate_wishlist', 0);
+		add_option('dc_rtfw_wishlist_page', '');
 	}
 
 }

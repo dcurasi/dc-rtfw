@@ -153,7 +153,12 @@ class Dc_Rtfw {
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
-
+		$this->loader->add_action( 'admin_menu', $plugin_admin, 'add_menu_page' );
+		$this->loader->add_action( 'admin_init', $plugin_admin, 'settings_api_init' );
+		//$this->loader->add_action( 'admin_notices', $plugin_admin, 'error_notice' );
+		if( $_GET['settings-updated'] ) {
+			$this->loader->add_action( 'admin_notices', $plugin_admin, 'update_notice' );
+		}
 	}
 
 	/**
@@ -166,10 +171,18 @@ class Dc_Rtfw {
 	private function define_public_hooks() {
 
 		$plugin_public = new Dc_Rtfw_Public( $this->get_plugin_name(), $this->get_version() );
-
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
-
+		if( get_option( 'dc_rtfw_activate' ) ) {
+			$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
+			$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
+			if( get_option( 'dc_rtfw_activate_cart' ) ) {
+				$this->loader->add_action( 'woocommerce_before_cart_table', $plugin_public, 'table_start' );
+				$this->loader->add_action( 'woocommerce_after_cart_table', $plugin_public, 'table_end' );
+			}
+			if( get_option( 'dc_rtfw_wishlist_page' ) ) {
+				$this->loader->add_action( 'yith_wcwl_before_wishlist', $plugin_public, 'table_start' );
+				$this->loader->add_action( 'yith_wcwl_after_wishlist', $plugin_public, 'table_end' );
+			}
+		}
 	}
 
 	/**

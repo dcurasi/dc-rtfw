@@ -30,7 +30,10 @@ class Dc_Rtfw_Deactivator {
 	 * @since    1.0.0
 	 */
 	public static function deactivate() {
-
+		delete_option( 'dc_rtfw_activate' );
+		delete_option('dc_rtfw_activate_cart');
+		delete_option('dc_rtfw_activate_wishlist');
+		delete_option( 'dc_rtfw_wishlist_page' );
 	}
 
 }
