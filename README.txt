@@ -1,5 +1,7 @@
 === Responsive Table for Woocommerce ===
+
 Donate link:
+Contributors: dcurasi
 Tags: table, tables, responsive, cart, wishlist, woocommerce, yith, e-commerce, shop, woocommerce wishlist, woocommerce cart, products
 Requires at least: 3.0.1
 Tested up to: 4.6.1
