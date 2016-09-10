@@ -15,7 +15,7 @@
  * @wordpress-plugin
  * Plugin Name:       Responsive Table for Woocommerce
  * Plugin URI:        https://github.com/dcurasi/dc-rtfw
- * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
+ * Description:       Make responsive the Cart and Wishlist table of Woocommerce.
  * Version:           1.0.0
  * Author:            Dario Curasì
  * Author URI:        https://github.com/dcurasi
