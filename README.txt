@@ -34,6 +34,12 @@ It is compatible with the wishlist of [Yith WooCommerce Wishlist].
 
 == Screenshots ==
 
+1. The admin panel
+2. An example of cart
+3. An example of responsive cart
+4. An example of wishlist
+5. An example of responsive wishlist
+
 
 == Changelog ==
 
