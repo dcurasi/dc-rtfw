@@ -64,12 +64,12 @@ class Dc_Rtfw {
 	 * Load the dependencies, define the locale, and set the hooks for the admin area and
 	 * the public-facing side of the site.
 	 *
-	 * @since    1.0.0
+	 * @since    1.1.0
 	 */
 	public function __construct() {
 
 		$this->plugin_name = 'dc-rtfw';
-		$this->version = '1.0.0';
+		$this->version = '1.1.0';
 
 		$this->load_dependencies();
 		$this->set_locale();
@@ -144,7 +144,7 @@ class Dc_Rtfw {
 	 * Register all of the hooks related to the admin area functionality
 	 * of the plugin.
 	 *
-	 * @since    1.0.0
+	 * @since    1.1.0
 	 * @access   private
 	 */
 	private function define_admin_hooks() {
@@ -155,9 +155,8 @@ class Dc_Rtfw {
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'add_menu_page' );
 		$this->loader->add_action( 'admin_init', $plugin_admin, 'settings_api_init' );
-		//$this->loader->add_action( 'admin_notices', $plugin_admin, 'error_notice' );
-		if( $_GET['settings-updated'] ) {
-			$this->loader->add_action( 'admin_notices', $plugin_admin, 'update_notice' );
+		if ( !in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
+			$this->loader->add_action( 'admin_notices', $plugin_admin, 'error_notice' );
 		}
 	}
 
@@ -165,22 +164,24 @@ class Dc_Rtfw {
 	 * Register all of the hooks related to the public-facing functionality
 	 * of the plugin.
 	 *
-	 * @since    1.0.0
+	 * @since    1.1.0
 	 * @access   private
 	 */
 	private function define_public_hooks() {
 
 		$plugin_public = new Dc_Rtfw_Public( $this->get_plugin_name(), $this->get_version() );
-		if( get_option( 'dc_rtfw_activate' ) ) {
-			$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
-			$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
-			if( get_option( 'dc_rtfw_activate_cart' ) ) {
-				$this->loader->add_action( 'woocommerce_before_cart_table', $plugin_public, 'table_start' );
-				$this->loader->add_action( 'woocommerce_after_cart_table', $plugin_public, 'table_end' );
-			}
-			if( get_option( 'dc_rtfw_wishlist_page' ) ) {
-				$this->loader->add_action( 'yith_wcwl_before_wishlist', $plugin_public, 'table_start' );
-				$this->loader->add_action( 'yith_wcwl_after_wishlist', $plugin_public, 'table_end' );
+		if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
+			if( get_option( 'dc_rtfw_activate' ) ) {
+				$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
+				$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
+				if( get_option( 'dc_rtfw_activate_cart' ) ) {
+					$this->loader->add_action( 'woocommerce_before_cart_table', $plugin_public, 'table_start' );
+					$this->loader->add_action( 'woocommerce_after_cart_table', $plugin_public, 'table_end' );
+				}
+				if( get_option( 'dc_rtfw_wishlist_page' ) ) {
+					$this->loader->add_action( 'yith_wcwl_before_wishlist', $plugin_public, 'table_start' );
+					$this->loader->add_action( 'yith_wcwl_after_wishlist', $plugin_public, 'table_end' );
+				}
 			}
 		}
 	}

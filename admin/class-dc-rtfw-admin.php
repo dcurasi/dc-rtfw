@@ -129,9 +129,15 @@ class Dc_Rtfw_Admin {
 		register_setting('dc_rtfw_options_group', 'dc_rtfw_wishlist_page');
 	}
 
-	public function update_notice() {
-		echo '<div class="updated notice">
-        		<p>The options have been saved successfully.</p>
+	/**
+	 * Error notice
+	 *
+	 * @since    1.1.0
+	 */
+
+	public function error_notice() {
+		echo '<div class="notice notice-error is-dismissible">
+        		<p>Responsive Table for Woocommerce is active but does not work. You need to install WooCommerce because the plugin is working properly.</p>
     		  </div>';
 	}
 

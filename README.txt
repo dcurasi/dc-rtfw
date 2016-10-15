@@ -1,6 +1,6 @@
 === Responsive Table for Woocommerce ===
 
-Donate link:
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=KZRGHFSGGRXU6
 Contributors: dcurasi
 Tags: table, tables, responsive, cart, wishlist, woocommerce, yith, e-commerce, shop, woocommerce wishlist, woocommerce cart, products
 Requires at least: 3.0.1
@@ -27,7 +27,7 @@ It is compatible with the wishlist of [Yith WooCommerce Wishlist].
 == Installation ==
 
 1. Unzip the downloaded zip file.
-2. Upload `dc-rtfw` folder to the `/wp-content/plugins/` directory
+2. Upload `responsive-table-for-woocommerce` folder to the `/wp-content/plugins/` directory
 3. Activate the plugin through the \'Plugins\' menu in WordPress
 4. Go to Woocommerce > Responsive Table for change the default options
 
@@ -42,6 +42,12 @@ It is compatible with the wishlist of [Yith WooCommerce Wishlist].
 
 
 == Changelog ==
+
+= 1.1.0 - 15/10/16 =
+* Fix - Fixed save options button text of the admin panel
+* Tweak - Changed the method for displaying the confirmation message for saved options
+* Feature - Added notification message when woocommerce is not active
+* Dev - Added donation link
 
 = 1.0 =
 * Initial public version

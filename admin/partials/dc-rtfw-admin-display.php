@@ -18,6 +18,7 @@
 <form method="post" action="options.php">
     <!--necessaria per il corretto aggiornamento dei dati-->
     <?php settings_fields('dc_rtfw_options_group'); ?>
+    <?php settings_errors(); ?>
     <table class="form-table">
            <tbody>
                 <tr valign="top">
@@ -80,7 +81,7 @@
                    <th scope="row"></th>
                    <td>
                        <p>
-                           <input type="submit" class="button-primary save-options" id="submit" name="submit" value="Salva le modifiche">
+                           <input type="submit" class="button-primary save-options" id="submit" name="submit" value="Save options">
                        </p>
                    </td>
                 </tr>
