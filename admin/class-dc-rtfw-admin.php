@@ -132,12 +132,12 @@ class Dc_Rtfw_Admin {
 	/**
 	 * Error notice
 	 *
-	 * @since    1.1.0
+	 * @since    1.1.1
 	 */
 
 	public function error_notice() {
 		echo '<div class="notice notice-error is-dismissible">
-        		<p>Responsive Table for Woocommerce is active but does not work. You need to install WooCommerce because the plugin is working properly.</p>
+        		<p>'.__('Responsive Table for Woocommerce is active but does not work. You need to install WooCommerce because the plugin is working properly.','dc-rtfw').'</p>
     		  </div>';
 	}
 

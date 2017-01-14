@@ -6,7 +6,7 @@
  * This file is used to markup the admin-facing aspects of the plugin.
  *
  * @link       https://github.com/dcurasi
- * @since      1.0.0
+ * @since      1.1.1
  *
  * @package    Dc_Rtfw
  * @subpackage Dc_Rtfw/admin/partials
@@ -14,7 +14,7 @@
 ?>
 
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->
-<h1>Responsive Table for Woocommerce</h1>
+<h1><?php _e('Responsive Table for Woocommerce', 'dc-rtfw'); ?></h1>
 <form method="post" action="options.php">
     <!--necessaria per il corretto aggiornamento dei dati-->
     <?php settings_fields('dc_rtfw_options_group'); ?>
@@ -23,41 +23,41 @@
            <tbody>
                 <tr valign="top">
                     <th scope="row">
-                        <label for="dc_rtfw_activate">Enable / Disable</label>
+                        <label for="dc_rtfw_activate"><?php _e('Enable / Disable', 'dc-rtfw'); ?></label>
                     </th>
                     <td>
                       <label for="dc_rtfw_activate">
-                          <input type="checkbox" id="dc_rtfw_activate" value="1" <?php checked(get_option('dc_rtfw_activate'), 1); ?> name="dc_rtfw_activate"> Activate Options
+                          <input type="checkbox" id="dc_rtfw_activate" value="1" <?php checked(get_option('dc_rtfw_activate'), 1); ?> name="dc_rtfw_activate"> <?php _e('Activate Options', 'dc-rtfw'); ?>
                       </label>
                     </td>
                 </tr>
                 <tr valign="top">
                     <th scope="row">
-                        <label for="dc_rtfw_activate_cart">Cart</label>
+                        <label for="dc_rtfw_activate_cart"><?php _e('Cart', 'dc-rtfw'); ?></label>
                     </th>
                     <td>
                       <label for="dc_rtfw_activate_cart">
-                          <input type="checkbox" id="dc_rtfw_activate_cart" value="1" <?php checked(get_option('dc_rtfw_activate_cart'), 1); ?> name="dc_rtfw_activate_cart"> Activate Responsive Cart
+                          <input type="checkbox" id="dc_rtfw_activate_cart" value="1" <?php checked(get_option('dc_rtfw_activate_cart'), 1); ?> name="dc_rtfw_activate_cart"> <?php _e('Activate Responsive Cart', 'dc-rtfw'); ?>
                       </label>
                     </td>
                 </tr>
                 <tr valign="top">
                     <th scope="row">
-                        <label for="dc_rtfw_activate_wishlist">Wishlist</label>
+                        <label for="dc_rtfw_activate_wishlist"><?php _e('Wishlist', 'dc-rtfw'); ?></label>
                     </th>
                     <td>
                       <label for="dc_rtfw_activate_wishlist">
-                          <input type="checkbox" id="dc_rtfw_activate_wishlist" value="1" <?php checked(get_option('dc_rtfw_activate_wishlist'), 1); ?> name="dc_rtfw_activate_wishlist"> Activate Responsive Wishlist
+                          <input type="checkbox" id="dc_rtfw_activate_wishlist" value="1" <?php checked(get_option('dc_rtfw_activate_wishlist'), 1); ?> name="dc_rtfw_activate_wishlist"> <?php _e('Activate Responsive Wishlist', 'dc-rtfw'); ?>
                       </label>
                     </td>
                 </tr>
                 <tr valign="top">
                     <th scope="row">
-                        <label for="dc_rtfw_wishlist_page">Wishlist Page</label>
+                        <label for="dc_rtfw_wishlist_page"><?php _e('Wishlist Page', 'dc-rtfw'); ?></label>
                     </th>
                     <td>
                         <select id="dc_rtfw_wishlist_page" name="dc_rtfw_wishlist_page">
-                            <option value="">Select a page</option>
+                            <option value=""><?php _e('Select a page', 'dc-rtfw'); ?></option>
                             <?php
                                 $args = array(
                                   'sort_order' => 'asc',
@@ -74,14 +74,14 @@
                                 }
                             ?>
                         </select>
-                        <p class="description">Select the Wishlist page</p>
+                        <p class="description"><?php _e('Select the Wishlist page', 'dc-rtfw'); ?></p>
                     </td>
                 </tr>
                 <tr valign="top">
                    <th scope="row"></th>
                    <td>
                        <p>
-                           <input type="submit" class="button-primary save-options" id="submit" name="submit" value="Save options">
+                           <?php submit_button(); ?>
                        </p>
                    </td>
                 </tr>
